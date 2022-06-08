@@ -1,9 +1,17 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
+import Header from "./components/Header/Header";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("Testing the general rendering of the main App", () => {
+  it("should render the main div", () => {
+    render(<App />);
+    const mainDiv = screen.getByTestId("mainDiv");
+    expect(mainDiv).toBeInTheDocument();
+  });
+  it("should render the header", () => {
+    render(<Header />);
+    const header = screen.getByTestId("header");
+    expect(header).toBeInTheDocument();
+  });
 });

@@ -1,0 +1,16 @@
+.header {
+  height: 35vh;
+  background-image: linear-gradient(
+      to right,
+      rgba(232, 250, 72, 0.794),
+      rgba(222, 200, 52, 0.794),
+      rgba(212, 150, 32, 0.794)
+    ),
+    url("../../assets/images/header_img.jpg");
+  background-position: center;
+}
+
+.header-img {
+  height: 100%;
+  width: 100%;
+}

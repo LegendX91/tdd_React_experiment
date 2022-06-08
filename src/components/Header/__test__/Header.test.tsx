@@ -21,5 +21,6 @@ describe("Testing the general rendering of the Header component", () => {
       expect(style.color).toBe("white");
       expect(style.textAlign).toBe("center");
       expect(style.fontStyle).toBe("italic");
+      expect(style.textShadow).toBe("1px 2px 9px black");
   })
 });

@@ -13,7 +13,7 @@ function TestPage({ elements, title }: testPageProps) {
           {elements.map((test, index) => (
             <Link
               key={index}
-              to={`/Calculator/${test.name}`}
+              to={`/${title}/${test.name}`}
               className="test"
               data-testid={"innerNavEl" + index}
             >

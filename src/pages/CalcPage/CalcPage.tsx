@@ -35,6 +35,7 @@ function CalcPage({ title }: opProps) {
               borderRadius: "10px",
               textAlign: "center",
               verticalAlign: "middle",
+              fontSize: "20px"
             }}
             value={a}
             onChange={(event) => {
@@ -53,6 +54,7 @@ function CalcPage({ title }: opProps) {
               borderRadius: "10px",
               textAlign: "center",
               verticalAlign: "middle",
+              fontSize: "20px"
             }}
             value={b}
             onChange={(event) => {
@@ -67,8 +69,7 @@ function CalcPage({ title }: opProps) {
           <div
             style={{
               backgroundColor: "orange",
-              margin: "auto",
-              width: "20%",
+              width: "200px",
               border: "3px solid white",
               padding: "10px",
               display: "flex",
@@ -90,8 +91,7 @@ function CalcPage({ title }: opProps) {
                   data-testid="operation"
                   onClick={() => setRes(add(a, b))}
                 >
-                  {" "}
-                  {"add()"}{" "}
+                  {"add()"}
                 </label>
               )}
               {"Subtraction".startsWith(title) && (
@@ -99,8 +99,7 @@ function CalcPage({ title }: opProps) {
                   data-testid="operation"
                   onClick={() => setRes(sub(a, b))}
                 >
-                  {" "}
-                  {"sub()"}{" "}
+                  {"sub()"}
                 </label>
               )}
               {"Multiplication".startsWith(title) && (
@@ -108,8 +107,7 @@ function CalcPage({ title }: opProps) {
                   data-testid="operation"
                   onClick={() => setRes(mul(a, b))}
                 >
-                  {" "}
-                  {"mul()"}{" "}
+                  {"mul()"}
                 </label>
               )}
               {"Division".startsWith(title) && (
@@ -117,8 +115,7 @@ function CalcPage({ title }: opProps) {
                   data-testid="operation"
                   onClick={() => setRes(div(a, b))}
                 >
-                  {" "}
-                  {"div()"}{" "}
+                  {"div()"}
                 </label>
               )}
             </h1>
@@ -146,6 +143,7 @@ function CalcPage({ title }: opProps) {
               borderRadius: "10px",
               textAlign: "center",
               verticalAlign: "middle",
+              fontSize: "20px"
             }}
             value={a}
             onChange={(event) => {
@@ -178,7 +176,10 @@ function CalcPage({ title }: opProps) {
                 fontWeight: "bolder",
               }}
             >
-              <label data-testid="operation" onClick={() => setRes(mkArray(a))}> {"mkArray()"} </label>
+              <label data-testid="operation" onClick={() => setRes(mkArray(a))}>
+                {" "}
+                {"mkArray()"}{" "}
+              </label>
             </h1>
           </div>
         </div>

@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import TestPage from "./pages/TestPage/TestPage";
+import CalcPage from "./pages/CalcPage/CalcPage";
 
 const data = ["Primitives", "Objects", "API", "Problems"];
 
@@ -148,6 +149,29 @@ function App() {
                   title={data[3]}
                 />
               }
+            ></Route>
+
+            {/* Path to Inner Specific Pages */}
+
+            <Route
+              path={`/${data[0]}/Addition`}
+              element={<CalcPage title="Addition" />}
+            ></Route>
+            <Route
+              path={`/${data[0]}/Subtraction`}
+              element={<CalcPage title="Subtraction" />}
+            ></Route>
+            <Route
+              path={`/${data[0]}/Multiplication`}
+              element={<CalcPage title="Multiplication" />}
+            ></Route>
+            <Route
+              path={`/${data[0]}/Division`}
+              element={<CalcPage title="Division" />}
+            ></Route>
+            <Route
+              path={`/${data[0]}/MakeRandomArray`}
+              element={<CalcPage title="MakeRandomArray" />}
             ></Route>
           </Routes>
         </div>

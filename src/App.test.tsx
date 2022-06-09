@@ -33,5 +33,13 @@ describe("Testing the correct routing of default options", () =>{
     const el0 = screen.getByTestId("navTo0");
     fireEvent.click(el0);
     expect(screen.getByTestId("Primitives")).toBeInTheDocument();
+  });
+  it("should render the CalcPage component following the click of corresponding Link inside Primitives page", () => {
+    render(<App />);
+    const el0 = screen.getByTestId("navTo0");
+    fireEvent.click(el0);
+    const innerEl = screen.getByTestId("innerNavEl0");
+    fireEvent.click(innerEl);
+    expect(screen.getByTestId("Addition")).toBeInTheDocument();
   })
 })

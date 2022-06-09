@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
+import CalcPage from "../CalcPage/CalcPage";
 import "./style.css";
 interface testPageProps {
   elements: { name: string; image: string; description: string }[];

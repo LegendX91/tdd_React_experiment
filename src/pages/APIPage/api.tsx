@@ -1,4 +1,4 @@
-const appid = "&appid=10264219b5abd57b583acb05ecceba1b";
+/* const appid = "YOUR KEY";
 const url = "https://api.openweathermap.org/data/2.5/weather?q=";
 const fetch = require("node-fetch");
 
@@ -26,4 +26,6 @@ export async function fetchByCityCountry(city: string, country: string) {
   } catch (err) {
     throw new Error(`Error! status: internal error`);
   }
-}
+} */
+
+export {};

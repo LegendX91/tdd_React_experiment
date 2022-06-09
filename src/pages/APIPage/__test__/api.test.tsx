@@ -1,8 +1,10 @@
-import { fetchByCity, fetchByCityCountry } from "../api";
+/* import { fetchByCity, fetchByCityCountry } from "../api"; */
 import apiRequest from "../../../../mocks/apiCall";
 jest.mock("../../../../mocks/apiCall");
 
-describe("Testing fetch REST API OpenWeatherMap by City", () => {
+// API Key from OpenWeatherMap necessary to uncomment in ../api.tsx
+
+/* describe("Testing fetch REST API OpenWeatherMap by City", () => {
   it("should return an object with info about weather of the described city", async() => {
     const data = await fetchByCity("Bologna");
     expect(data.name).toBe("Bologna");
@@ -19,7 +21,7 @@ describe("Testing fetch REST API OpenWeatherMap by City", () => {
     const data = await fetchByCityCountry("Los Angeles", "US");
     expect(data.sys.country).toBe("US");
   });
-});
+}); */
 
 describe("Testing a mock function call", () => {
   it("should return an expected value given a certain call to API if mocked correctly", async() => {

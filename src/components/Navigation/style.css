@@ -1,0 +1,33 @@
+.nav-links {
+  padding: 12px 180px;
+  background: linear-gradient(
+    to right,
+    rgba(232, 250, 72, 0.794),
+    rgba(222, 200, 52, 0.794),
+    rgba(212, 150, 32, 0.794)
+  );
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+}
+
+.nav-links :hover{
+    box-shadow: 2px 2px 2px black;
+    border-radius: 10;
+    background: linear-gradient(
+    to left,
+    rgba(232, 250, 72, 0.794),
+    rgba(222, 200, 52, 0.794),
+    rgba(212, 150, 32, 0.794)
+  );
+}
+
+.nav-link {
+  color: white;
+  font-weight: bolder;
+  text-decoration: none;
+  padding: 6px 24px;
+  font-size: 20px;
+  text-shadow: 2px, 2px, black;
+}

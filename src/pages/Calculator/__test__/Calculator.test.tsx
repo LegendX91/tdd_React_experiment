@@ -1,12 +1,12 @@
 
 import { fireEvent, render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import Navigation from "../Navigation";
+import Calculator from "../Calculator";
 
 const MockedNavigation = () => {
     return(
         <BrowserRouter>
-            <Navigation elements={["Calculator", "Problems", "API", "Complex"]}/>
+            <Calculator />
         </BrowserRouter>
     )
 }
@@ -14,12 +14,12 @@ const MockedNavigation = () => {
 describe("Testing the general rendering of the Navigation component", () => {
   it("should render a list of 4 elements as links", () => {
       render(<MockedNavigation />);
-      const listElements = screen.getAllByTestId(/navEl/i);
-      expect(listElements).toHaveLength(4);
+      const listElements = screen.getAllByTestId(/innerNavEl/i);
+      expect(listElements).toHaveLength(3);
   });
   it("should change the link when pressed", () => {
       render(<MockedNavigation />);
-      const el0 = screen.getByTestId(/navTo0/i);
+      const el0 = screen.getByTestId(/innerNavEl0/i);
       fireEvent.click(el0);
       expect(global.window.location.href).toContain(`${el0}`);
   });

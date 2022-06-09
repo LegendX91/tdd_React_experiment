@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import App from "./App";
 import Header from "./components/Header/Header";
 
@@ -23,5 +23,17 @@ describe("Testing the general rendering of the main App", () => {
     render(<App />);
     const navigation = screen.getByTestId("navigation");
     expect(navigation).toBeInTheDocument();
-  })
+  });
 });
+
+
+//Integration Tests
+
+describe("Testing the correct routing of default options", () =>{
+  it("should render the Calculator component following the click of corresponding navLink", () => {
+    render(<App />);
+    const el0 = screen.getByTestId("navTo0");
+    fireEvent.click(el0);
+    expect(screen.getByTestId("Calculator")).toBeInTheDocument();
+  })
+})

@@ -1,14 +1,17 @@
 import { NavLink } from "react-router-dom";
 import "./style.css";
 
-const Navigation = () => {
-  const testType: string[] = ["Calculator", "Problems", "API", "Complex"];
+interface navProps {
+  elements: string[],
+}
+
+const Navigation = ({elements}: navProps) => {
 
   return (
     <nav data-testid="navigation">
       <ul className="nav-links">
-        {testType
-          ? testType.map((type, index) => (
+        {elements
+          ? elements.map((type, index) => (
               <li key={index} data-testid={"navEl"+index}>
                 {/* These links should have an activeClassName prop */}
                 <NavLink

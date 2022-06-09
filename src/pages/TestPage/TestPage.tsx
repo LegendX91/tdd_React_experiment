@@ -1,18 +1,16 @@
 import { Link } from "react-router-dom";
 import "./style.css";
+interface testPageProps {
+  elements: { name: string; image: string; description: string }[];
+  title: string;
+}
 
-const data = [
-  { name: "test1", image: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51322435/3/?bust=1619219058\u0026width=100", description: "lorem ipsum" },
-  { name: "test2", image: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51322435/3/?bust=1619219058\u0026width=100", description: "lorem ipsum" },
-  { name: "test3", image: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51322435/3/?bust=1619219058\u0026width=100", description: "lorem ipsum" },
-];  
-
-function Calculator() {
+function TestPage({ elements, title }: testPageProps) {
   return (
-    <div data-testid={"Calculator"} className="calcDiv">
-      {data.length ? (
+    <div data-testid={title} className="calcDiv">
+      {elements.length ? (
         <div className="grid">
-          {data.map((test, index) => (
+          {elements.map((test, index) => (
             <Link
               key={index}
               to={`/Calculator/${test.name}`}
@@ -36,4 +34,4 @@ function Calculator() {
   );
 }
 
-export default Calculator;
+export default TestPage;

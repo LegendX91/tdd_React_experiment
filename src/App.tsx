@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
-import Calculator from "./pages/Calculator/Calculator";
+import TestPage from "./pages/TestPage/TestPage";
 
 function App() {
   return (
@@ -10,9 +10,19 @@ function App() {
       <Header />
       <Router>
         <div className="Router" data-testid="router">
-          <Navigation elements={["Calculator", "Problems", "API", "Complex"]}/>
+          <Navigation elements={["Calculator", "Problems", "API", "Complex"]} />
           <Routes>
-            <Route path={"/Calculator"} element={<Calculator />}></Route>
+            <Route
+              path={"/Calculator"}
+              element={
+                <TestPage
+                  elements={[
+                    { name: "test", image: "test", description: "lorem ipsum" },
+                  ]}
+                  title={"Calculator"}
+                />
+              }
+            ></Route>
             <Route path={"/Problems"}></Route>
             <Route path={"/API"}></Route>
             <Route path={"/Complex"}></Route>

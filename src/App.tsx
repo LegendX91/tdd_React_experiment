@@ -173,6 +173,7 @@ function App() {
               path={`/${data[0]}/MakeRandomArray`}
               element={<CalcPage title="MakeRandomArray" />}
             ></Route>
+            <Route path={`/`} element={<h1></h1>}></Route>
           </Routes>
         </div>
       </Router>

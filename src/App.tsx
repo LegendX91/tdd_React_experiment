@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import TestPage from "./pages/TestPage/TestPage";
 import CalcPage from "./pages/CalcPage/CalcPage";
+import ObjPage from "./pages/ObjPage/ObjPage";
 
 const data = ["Primitives", "Objects", "API", "Problems"];
 
@@ -173,6 +174,40 @@ function App() {
               path={`/${data[0]}/MakeRandomArray`}
               element={<CalcPage title="MakeRandomArray" />}
             ></Route>
+
+            <Route
+              path={`/${data[1]}/getCountry`}
+              element={<ObjPage title="getCountry" />}
+            ></Route>
+            <Route
+              path={`/${data[1]}/getCities`}
+              element={<ObjPage title="getCities" />}
+            ></Route>
+            <Route
+              path={`/${data[1]}/getCitiesOf`}
+              element={<ObjPage title="getCitiesOf" />}
+            ></Route>
+            <Route
+              path={`/${data[1]}/addCity`}
+              element={<ObjPage title="addCity" />}
+            ></Route>
+            <Route
+              path={`/${data[1]}/modCityByName`}
+              element={<ObjPage title="modCityByName" />}
+            ></Route>
+            <Route
+              path={`/${data[1]}/modCityByIndex`}
+              element={<ObjPage title="modCityByIndex" />}
+            ></Route>
+            <Route
+              path={`/${data[1]}/removeCityByName`}
+              element={<ObjPage title="removeCityByName" />}
+            ></Route>
+            <Route
+              path={`/${data[1]}/removeCityByIndex`}
+              element={<ObjPage title="removeCityByIndex" />}
+            ></Route>
+
             <Route path={`/`} element={<h1></h1>}></Route>
           </Routes>
         </div>

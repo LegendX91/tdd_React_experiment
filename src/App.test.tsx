@@ -24,22 +24,41 @@ describe("Testing the general rendering of the main App", () => {
   });
 });
 
-
 //Integration Tests
 
-describe("Testing the correct routing of default options", () =>{
-  it("should render the TestPage component following the click of corresponding navLink", () => {
-    render(<App />);
-    const el0 = screen.getByTestId("navTo0");
-    fireEvent.click(el0);
-    expect(screen.getByTestId("Primitives")).toBeInTheDocument();
+describe("Testing the correct routing of default options", () => {
+  describe("Testing CalcPage integrations", () => {
+    it("should render the TestPage component following the click of Primitives", () => {
+      render(<App />);
+      const el0 = screen.getByTestId("navTo0");
+      fireEvent.click(el0);
+      expect(screen.getByTestId("Primitives")).toBeInTheDocument();
+    });
+    it("should render the CalcPage component following the click of corresponding Link inside Primitives page", () => {
+      render(<App />);
+      const el0 = screen.getByTestId("navTo0");
+      fireEvent.click(el0);
+      const innerEl = screen.getByTestId("innerNavEl0");
+      fireEvent.click(innerEl);
+      expect(screen.getByTestId("Addition")).toBeInTheDocument();
+    });
   });
-  it("should render the CalcPage component following the click of corresponding Link inside Primitives page", () => {
-    render(<App />);
-    const el0 = screen.getByTestId("navTo0");
-    fireEvent.click(el0);
-    const innerEl = screen.getByTestId("innerNavEl0");
-    fireEvent.click(innerEl);
-    expect(screen.getByTestId("Addition")).toBeInTheDocument();
-  })
-})
+
+  describe("Testing ObjPage integrations", () => {
+    it("should render the TestPage component following the click of Objects", () => {
+      render(<App />);
+      const el0 = screen.getByTestId("navTo1");
+      fireEvent.click(el0);
+      expect(screen.getByTestId("Objects")).toBeInTheDocument();
+    });
+
+    it("should render the ObjPage component following the click of corresponding Link inside Objects page", () => {
+      render(<App />);
+      const el0 = screen.getByTestId("navTo1");
+      fireEvent.click(el0);
+      const innerEl = screen.getByTestId("innerNavEl0");
+      fireEvent.click(innerEl);
+      expect(screen.getByTestId("getCountry")).toBeInTheDocument();
+    });
+  });
+});

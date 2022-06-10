@@ -1,0 +1,52 @@
+const data = {
+  countries: [
+    "Italy",
+    "Spain",
+    "Germany",
+    "England",
+    "America",
+    "Russia",
+    "Japan",
+    "Finland",
+    "Switzerland",
+    "Egypt",
+    "Canada",
+  ],
+  cities: [
+    "New York",
+    "London",
+    "Bologna",
+    "Milan",
+    "Tokyo",
+    "Pars",
+    "Bruxelles",
+    "Vienna",
+    "San Francisco",
+    "Vancouver",
+    "Il Cairo",
+    "Moscow",
+  ],
+  combos: {
+    Italy: [
+      "Bologna",
+      "Milan",
+      "Venice",
+      "Florence",
+      "Naples",
+      "Taranto",
+      "Aosta",
+    ],
+    England: ["London", "Manchester"],
+    France: ["Paris", "Versailles"],
+    America: [
+      "New York",
+      "San Francisco",
+      "Los Angeles",
+      "Las Vegas",
+      "Washington",
+      "Atlanta",
+    ],
+  },
+};
+
+export default data;

@@ -1,0 +1,52 @@
+.primDiv {
+  margin: auto;
+  width: 30%;
+  border: 3px, solid white;
+  padding-top: auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.primInput {
+  margin: 5px;
+  border-radius: 10px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+.primButton {
+  background-color: orange;
+  width: 200px;
+  border: 3px solid white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-radius: 10px;
+}
+
+.primLabel {
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  font-weight: bolder;
+}
+
+.primResults {
+    background-color: orange;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    border: 3px solid white;
+    padding: 10px;
+    justify-content: center;
+    align-content: center;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    word-wrap: break-word;
+    text-align: center;
+  }

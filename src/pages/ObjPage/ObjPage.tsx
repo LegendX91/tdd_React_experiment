@@ -1,5 +1,11 @@
-import { useState } from "react";
-import { getCities, getCitiesOf, getCountries } from "./objects";
+import { useEffect, useState } from "react";
+import {
+  addCity,
+  getCities,
+  getCitiesOf,
+  getCountries,
+  objType,
+} from "./objects";
 import "./style.css";
 
 import data from "./data/data";
@@ -14,14 +20,18 @@ const op: string[] = [
   "getCitiesOf",
   "addCity",
   "modCityByName",
-  "moCityByIndex",
+  "modCityByIndex",
   "removeCityByName",
   "removeCityByIndex",
 ];
 
 function ObjPage({ title }: opProps) {
   const [element, setElement] = useState<string>("");
+  const [elementToChange, setElementToChange] = useState<string>("");
+  const [backData, setBackData] = useState<objType>(data);
   const [res, setRes] = useState<string[]>([""]);
+
+  useEffect(() => {}, [backData]);
 
   return (
     <>
@@ -42,12 +52,30 @@ function ObjPage({ title }: opProps) {
               placeholder={"What do you want to retrieve?"}
             />
           )}
+          {("modCityByName" === title ||
+            "modCityByIndex" === title ||
+            "removeCityByName" === title ||
+            "removeCityByIndex" === title) && (
+            <input
+              data-testid="operator2"
+              className="objInput"
+              value={elementToChange}
+              onChange={(event) => {
+                try {
+                  setElementToChange(event.target.value);
+                } catch (e) {
+                  console.warn("Error!");
+                }
+              }}
+              placeholder={"What do you want to retrieve?"}
+            />
+          )}
           <div className="objButton">
             <h1 className="objLabel">
               {"getCountry" === title && (
                 <label
                   data-testid="operation"
-                  onClick={() => setRes(getCountries(data))}
+                  onClick={() => setRes(getCountries(backData))}
                 >
                   {"getCountry()"}
                 </label>
@@ -55,7 +83,7 @@ function ObjPage({ title }: opProps) {
               {"getCities" === title && (
                 <label
                   data-testid="operation"
-                  onClick={() => setRes(getCities(data))}
+                  onClick={() => setRes(getCities(backData))}
                 >
                   {"getCities()"}
                 </label>
@@ -63,7 +91,18 @@ function ObjPage({ title }: opProps) {
               {"getCitiesOf" === title && (
                 <label
                   data-testid="operation"
-                  onClick={() => setRes(getCitiesOf(element, data))}
+                  onClick={() => setRes(getCitiesOf(element, backData))}
+                >
+                  {"getCitiesOf()"}
+                </label>
+              )}
+              {"addCity" === title && (
+                <label
+                  data-testid="operation"
+                  onClick={() => {
+                    setBackData(addCity(element, data));
+                    setRes(backData.cities);
+                  }}
                 >
                   {"getCitiesOf()"}
                 </label>

@@ -21,6 +21,42 @@ describe("Testing the general rendering of the ObjPage component", () => {
     const element = screen.getByTestId(/getCountry/i);
     expect(element).toBeInTheDocument();
   });
+
+  it("should render an input component in getCitiesOf", () => {
+    render(<MockedNavigation title="getCitiesOf" />);
+    expect(screen.getByTestId("operator1")).toBeInTheDocument();
+    expect(screen.queryByTestId("operator2")).not.toBeInTheDocument();
+  });
+
+  it("should render an input component in addCity", () => {
+    render(<MockedNavigation title="addCity" />);
+    expect(screen.getByTestId("operator1")).toBeInTheDocument();
+    expect(screen.queryByTestId("operator2")).not.toBeInTheDocument();
+  });
+
+  it("should render two input component in modCityByName", () => {
+    render(<MockedNavigation title="modCityByName" />);
+    expect(screen.getByTestId("operator1")).toBeInTheDocument();
+    expect(screen.getByTestId("operator2")).toBeInTheDocument();
+  });
+
+  it("should render two input component in modCityByIndex", () => {
+    render(<MockedNavigation title="modCityByIndex" />);
+    expect(screen.getByTestId("operator1")).toBeInTheDocument();
+    expect(screen.getByTestId("operator2")).toBeInTheDocument();
+  });
+
+  it("should render two input component in removeCityByName", () => {
+    render(<MockedNavigation title="removeCityByName" />);
+    expect(screen.getByTestId("operator1")).toBeInTheDocument();
+    expect(screen.getByTestId("operator2")).toBeInTheDocument();
+  });
+
+  it("should render two input component in removeCityByIndex", () => {
+    render(<MockedNavigation title="removeCityByIndex" />);
+    expect(screen.getByTestId("operator1")).toBeInTheDocument();
+    expect(screen.getByTestId("operator2")).toBeInTheDocument();
+  });
 });
 
 describe("Testing the inner called function correct invcation and results", () => {
@@ -30,11 +66,27 @@ describe("Testing the inner called function correct invcation and results", () =
     userEvent.click(operation);
     expect(screen.getByTestId("results")).not.toHaveTextContent("[]");
   });
-  
+
   it("should correctly execute getCities() when called", () => {
     render(<MockedNavigation title="getCities" />);
     const operation = screen.getByTestId(/operation/i);
     userEvent.click(operation);
     expect(screen.getByTestId("results")).not.toHaveTextContent("[]");
+  });
+
+  it("should correctly execute getCitiesOf() when called", () => {
+    render(<MockedNavigation title="getCitiesOf" />);
+    userEvent.type(screen.getByTestId("operator1"), "America");
+    const operation = screen.getByTestId(/operation/i);
+    userEvent.click(operation);
+    expect(screen.getByTestId("results")).toHaveTextContent("New York");
+  });
+
+  it("should correctly execute addCity() when called", () => {
+    render(<MockedNavigation title="addCity" />);
+    userEvent.type(screen.getByTestId("operator1"), "Miami");
+    const operation = screen.getByTestId(/operation/i);
+    userEvent.click(operation);
+    expect(screen.getByTestId("results")).toHaveTextContent("Miami ]");
   });
 });

@@ -1,4 +1,12 @@
-export function getCountries(data: { countries: string[] }): string[] {
+export interface objType {
+  countries: string[],
+  cities: string[],
+  combos: {
+    [name: string] : string[]
+  }
+}
+
+export function getCountries(data: objType): string[] {
   if (data) {
     const { countries } = data;
     return countries;
@@ -6,25 +14,25 @@ export function getCountries(data: { countries: string[] }): string[] {
   return [];
 }
 
-export function getCities(data: { cities: string[] }): string[] {
+export function getCities(data: objType): string[] {
   if (data) {
-    const { cities } = data;
-    return cities;
+    return data.cities;
   }
   return [];
 }
 
 export function getCitiesOf(
   searchValue: string,
-  data: { combos: { [name: string]: string[] } }
+  data: objType
 ): string[] {
   const { combos } = data;
   if (Object.keys(combos).includes(searchValue)) return combos[searchValue];
   return [];
 }
 
-export function addCity(city: string, data: { cities: string[] }): void {
+export function addCity(city: string, data: objType) {
   data.cities.push(city);
+  return data;
 }
 
 export function modCityByName(
@@ -53,9 +61,8 @@ export function removeCityByName(
 }
 
 export function removeCityByIndex(
-    index: number,
-    data: { cities: string[] }
-  ): void {
-    if (data.cities[index])
-      data.cities.splice(index, 1);
-  }
+  index: number,
+  data: { cities: string[] }
+): void {
+  if (data.cities[index]) data.cities.splice(index, 1);
+}

@@ -1,6 +1,11 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
   justify-items: center;
+  flex: auto;
   padding: 0 32px;
+}
+
+.element:hover {
+  opacity: 0.7;
 }

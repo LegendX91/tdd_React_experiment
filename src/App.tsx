@@ -5,6 +5,10 @@ import Navigation from "./components/Navigation/Navigation";
 import TestPage from "./pages/TestPage/TestPage";
 import CalcPage from "./pages/CalcPage/CalcPage";
 import ObjPage from "./pages/ObjPage/ObjPage";
+import mathImg from "./assets/images/math.jpg";
+import objImg from "./assets/images/objImg.jpg";
+import apiImg from "./assets/images/api.jpg";
+import probImg from "./assets/images/complex.jpg";
 
 const data = ["Primitives", "Objects", "API", "Problems"];
 
@@ -23,28 +27,28 @@ function App() {
                   elements={[
                     {
                       name: "Addition",
-                      image: "test",
+                      image: mathImg,
                       description: "Normal arithmetical operation",
                     },
                     {
                       name: "Subtraction",
-                      image: "test",
+                      image: mathImg,
                       description: "Normal arithmetical operation",
                     },
                     {
                       name: "Multiplication",
-                      image: "test",
+                      image: mathImg,
                       description: "Normal arithmetical operation",
                     },
                     {
                       name: "Division",
-                      image: "test",
+                      image: mathImg,
                       description: "Normal arithmetical operation",
                     },
                     {
                       name: "MakeRandomArray",
-                      image: "test",
-                      description: "lorem ipsum",
+                      image: mathImg,
+                      description: "Create a random array, ascending ordered, of n-input'd elements",
                     },
                   ]}
                   title={data[0]}
@@ -58,43 +62,43 @@ function App() {
                   elements={[
                     {
                       name: "getCountry",
-                      image: "test",
-                      description: "lorem ipsum",
+                      image: objImg,
+                      description: "get a Country from provided data",
                     },
                     {
                       name: "getCities",
-                      image: "test",
-                      description: "lorem ipsum",
+                      image: objImg,
+                      description: "get a City from provided data",
                     },
                     {
                       name: "getCitiesOf",
-                      image: "test",
-                      description: "lorem ipsum",
+                      image: objImg,
+                      description: "get all Cities of Country from provided data",
                     },
                     {
                       name: "addCity",
-                      image: "test",
-                      description: "lorem ipsum",
+                      image: objImg,
+                      description: "add a new city to data",
                     },
                     {
                       name: "modCityByName",
-                      image: "test",
-                      description: "lorem ipsum",
+                      image: objImg,
+                      description: "add a new city changing previous one by his own name in data",
                     },
                     {
                       name: "modCityByIndex",
-                      image: "test",
-                      description: "lorem ipsum",
+                      image: objImg,
+                      description: "add a new city changing previous one by his own index in data",
                     },
                     {
                       name: "removeCityByName",
-                      image: "test",
-                      description: "lorem ipsum",
+                      image: objImg,
+                      description: "remove a city by his own name in data",
                     },
                     {
                       name: "removeCityByIndex",
-                      image: "test",
-                      description: "lorem ipsum",
+                      image: objImg,
+                      description: "remove a city by his own index in data",
                     },
                   ]}
                   title={data[1]}
@@ -108,13 +112,13 @@ function App() {
                   elements={[
                     {
                       name: "fetchByCity",
-                      image: "test",
-                      description: "lorem ipsum",
+                      image: apiImg,
+                      description: "fetch local weather from OpenWeatherMap by City",
                     },
                     {
                       name: "fetchByCityCountry",
-                      image: "test",
-                      description: "lorem ipsum",
+                      image: apiImg,
+                      description: "fetch local weather from OpenWeatherMap by City and Country",
                     },
                   ]}
                   title={data[2]}
@@ -128,23 +132,23 @@ function App() {
                   elements={[
                     {
                       name: "Factorial",
-                      image: "test",
-                      description: "lorem ipsum",
+                      image: probImg,
+                      description: "Calculate a factorial of a given number",
                     },
                     {
                       name: "Exponential",
-                      image: "test",
-                      description: "lorem ipsum",
+                      image: probImg,
+                      description: "Find the exponential value of provided numbers",
                     },
                     {
                       name: "TaylorSeries",
-                      image: "test",
-                      description: "lorem ipsum",
+                      image: probImg,
+                      description: "Calculate a Taylor Series",
                     },
                     {
-                      name: "TartagliaPyramid",
-                      image: "test",
-                      description: "lorem ipsum",
+                      name: "TartagliaTriangle",
+                      image: probImg,
+                      description: "Create a Tartaglia's Triangle from an input'd size",
                     },
                   ]}
                   title={data[3]}

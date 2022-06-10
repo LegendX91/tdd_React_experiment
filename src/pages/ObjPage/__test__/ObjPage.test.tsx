@@ -46,16 +46,16 @@ describe("Testing the general rendering of the ObjPage component", () => {
     expect(screen.getByTestId("operator2")).toBeInTheDocument();
   });
 
-  it("should render two input component in removeCityByName", () => {
+  it("should render an input component in removeCityByName", () => {
     render(<MockedNavigation title="removeCityByName" />);
     expect(screen.getByTestId("operator1")).toBeInTheDocument();
-    expect(screen.getByTestId("operator2")).toBeInTheDocument();
+    expect(screen.queryByTestId("operator2")).not.toBeInTheDocument();
   });
 
-  it("should render two input component in removeCityByIndex", () => {
+  it("should render an input component in removeCityByIndex", () => {
     render(<MockedNavigation title="removeCityByIndex" />);
     expect(screen.getByTestId("operator1")).toBeInTheDocument();
-    expect(screen.getByTestId("operator2")).toBeInTheDocument();
+    expect(screen.queryByTestId("operator2")).not.toBeInTheDocument();
   });
 });
 
@@ -88,5 +88,39 @@ describe("Testing the inner called function correct invcation and results", () =
     const operation = screen.getByTestId(/operation/i);
     userEvent.click(operation);
     expect(screen.getByTestId("results")).toHaveTextContent("Miami ]");
+  });
+
+  it("should correctly execute modCityByName() when called", () => {
+    render(<MockedNavigation title="modCityByName" />);
+    userEvent.type(screen.getByTestId("operator1"), "London");
+    userEvent.type(screen.getByTestId("operator2"), "Miami");
+    const operation = screen.getByTestId(/operation/i);
+    userEvent.click(operation);
+    expect(screen.getByTestId("results")).toHaveTextContent(",Miami,");
+  });
+
+  it("should correctly execute modCityByIndex() when called", () => {
+    render(<MockedNavigation title="modCityByIndex" />);
+    userEvent.type(screen.getByTestId("operator1"), "Miami");
+    userEvent.type(screen.getByTestId("operator2"), "2");
+    const operation = screen.getByTestId(/operation/i);
+    userEvent.click(operation);
+    expect(screen.getByTestId("results")).toHaveTextContent(",Miami,");
+  });
+
+  it("should correctly execute removeCityByName() when called", () => {
+    render(<MockedNavigation title="removeCityByName" />);
+    userEvent.type(screen.getByTestId("operator1"), "Vancouver");
+    const operation = screen.getByTestId(/operation/i);
+    userEvent.click(operation);
+    expect(screen.getByTestId("results")).toHaveTextContent("Miami ]");
+  });
+
+  it("should correctly execute removeCityByIndex() when called", () => {
+    render(<MockedNavigation title="removeCityByIndex" />);
+    userEvent.type(screen.getByTestId("operator1"), "2");
+    const operation = screen.getByTestId(/operation/i);
+    userEvent.click(operation);
+    expect(screen.queryByTestId("results")).not.toHaveTextContent(",Vancouver,");
   });
 });

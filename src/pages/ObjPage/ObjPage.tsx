@@ -4,7 +4,11 @@ import {
   getCities,
   getCitiesOf,
   getCountries,
+  modCityByIndex,
+  modCityByName,
   objType,
+  removeCityByIndex,
+  removeCityByName,
 } from "./objects";
 import "./style.css";
 
@@ -37,6 +41,21 @@ function ObjPage({ title }: opProps) {
     <>
       {op.includes(title) && (
         <div data-testid={title} className="primDiv">
+          {("modCityByName" === title || "modCityByIndex" === title) && (
+            <input
+              data-testid="operator2"
+              className="objInput"
+              value={elementToChange}
+              onChange={(event) => {
+                try {
+                  setElementToChange(event.target.value);
+                } catch (e) {
+                  console.warn("Error!");
+                }
+              }}
+              placeholder={"New Element?"}
+            />
+          )}
           {"getCountry" !== title && "getCities" !== title && (
             <input
               data-testid="operator1"
@@ -49,25 +68,7 @@ function ObjPage({ title }: opProps) {
                   console.warn("Error!");
                 }
               }}
-              placeholder={"What do you want to retrieve?"}
-            />
-          )}
-          {("modCityByName" === title ||
-            "modCityByIndex" === title ||
-            "removeCityByName" === title ||
-            "removeCityByIndex" === title) && (
-            <input
-              data-testid="operator2"
-              className="objInput"
-              value={elementToChange}
-              onChange={(event) => {
-                try {
-                  setElementToChange(event.target.value);
-                } catch (e) {
-                  console.warn("Error!");
-                }
-              }}
-              placeholder={"What do you want to retrieve?"}
+              placeholder={"Insert...?"}
             />
           )}
           <div className="objButton">
@@ -105,6 +106,50 @@ function ObjPage({ title }: opProps) {
                   }}
                 >
                   {"getCitiesOf()"}
+                </label>
+              )}
+              {"modCityByName" === title && (
+                <label
+                  data-testid="operation"
+                  onClick={() => {
+                    setBackData(modCityByName(element, elementToChange, data));
+                    setRes(backData.cities);
+                  }}
+                >
+                  {"modCityByName()"}
+                </label>
+              )}
+              {"modCityByIndex" === title && (
+                <label
+                  data-testid="operation"
+                  onClick={() => {
+                    setBackData(modCityByIndex(Number.parseFloat(element), elementToChange, data));
+                    setRes(backData.cities);
+                  }}
+                >
+                  {"modCityByIndex()"}
+                </label>
+              )}
+              {"removeCityByName" === title && (
+                <label
+                  data-testid="operation"
+                  onClick={() => {
+                    setBackData(removeCityByName(element, data));
+                    setRes(backData.cities);
+                  }}
+                >
+                  {"removeCityByName()"}
+                </label>
+              )}
+              {"removeCityByIndex" === title && (
+                <label
+                  data-testid="operation"
+                  onClick={() => {
+                    setBackData(removeCityByIndex(Number.parseFloat(element), data));
+                    setRes(backData.cities);
+                  }}
+                >
+                  {"modCityByIndex()"}
                 </label>
               )}
             </h1>

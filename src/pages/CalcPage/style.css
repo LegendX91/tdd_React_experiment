@@ -14,6 +14,7 @@
   text-align: center;
   vertical-align: middle;
   font-size: 20px;
+  box-shadow: 2px 2px 2px lightgrey;
 }
 
 .primButton {
@@ -25,6 +26,7 @@
   justify-content: center;
   align-content: center;
   border-radius: 10px;
+  box-shadow: 2px 2px 2px lightgrey;
 }
 
 .primLabel {
@@ -49,4 +51,5 @@
     font-size: 20px;
     word-wrap: break-word;
     text-align: center;
+    box-shadow: 2px 2px 2px lightgrey;
   }

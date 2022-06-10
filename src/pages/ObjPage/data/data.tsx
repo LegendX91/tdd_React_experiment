@@ -18,7 +18,7 @@ const data = {
     "Bologna",
     "Milan",
     "Tokyo",
-    "Pars",
+    "Paris",
     "Bruxelles",
     "Vienna",
     "San Francisco",

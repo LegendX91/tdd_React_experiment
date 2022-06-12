@@ -6,9 +6,10 @@ import TestPage from "./pages/TestPage/TestPage";
 import CalcPage from "./pages/CalcPage/CalcPage";
 import ObjPage from "./pages/ObjPage/ObjPage";
 import mathImg from "./assets/images/math.jpg";
-import objImg from "./assets/images/objImg.jpg";
+import objImg from "./assets/images/cities.jpg";
 import apiImg from "./assets/images/api.jpg";
 import probImg from "./assets/images/complex.jpg";
+import FuncPage from "./pages/FuncPage/FuncPage";
 
 const data = ["Primitives", "Objects", "API", "Problems"];
 
@@ -48,7 +49,8 @@ function App() {
                     {
                       name: "MakeRandomArray",
                       image: mathImg,
-                      description: "Create a random array, ascending ordered, of n-input'd elements",
+                      description:
+                        "Create a random array, ascending ordered, of n-input'd elements",
                     },
                   ]}
                   title={data[0]}
@@ -73,7 +75,8 @@ function App() {
                     {
                       name: "getCitiesOf",
                       image: objImg,
-                      description: "get all Cities of Country from provided data",
+                      description:
+                        "get all Cities of Country from provided data",
                     },
                     {
                       name: "addCity",
@@ -83,12 +86,14 @@ function App() {
                     {
                       name: "modCityByName",
                       image: objImg,
-                      description: "add a new city changing previous one by his own name in data",
+                      description:
+                        "add a new city changing previous one by his own name in data",
                     },
                     {
                       name: "modCityByIndex",
                       image: objImg,
-                      description: "add a new city changing previous one by his own index in data",
+                      description:
+                        "add a new city changing previous one by his own index in data",
                     },
                     {
                       name: "removeCityByName",
@@ -113,12 +118,14 @@ function App() {
                     {
                       name: "fetchByCity",
                       image: apiImg,
-                      description: "fetch local weather from OpenWeatherMap by City",
+                      description:
+                        "fetch local weather from OpenWeatherMap by City",
                     },
                     {
                       name: "fetchByCityCountry",
                       image: apiImg,
-                      description: "fetch local weather from OpenWeatherMap by City and Country",
+                      description:
+                        "fetch local weather from OpenWeatherMap by City and Country",
                     },
                   ]}
                   title={data[2]}
@@ -138,7 +145,8 @@ function App() {
                     {
                       name: "Exponential",
                       image: probImg,
-                      description: "Find the exponential value of provided numbers",
+                      description:
+                        "Find the exponential value of provided numbers",
                     },
                     {
                       name: "TaylorSeries",
@@ -148,7 +156,8 @@ function App() {
                     {
                       name: "TartagliaTriangle",
                       image: probImg,
-                      description: "Create a Tartaglia's Triangle from an input'd size",
+                      description:
+                        "Create a Tartaglia's Triangle from an input'd size",
                     },
                   ]}
                   title={data[3]}
@@ -210,6 +219,23 @@ function App() {
             <Route
               path={`/${data[1]}/removeCityByIndex`}
               element={<ObjPage title="removeCityByIndex" />}
+            ></Route>
+
+            <Route
+              path={`/${data[3]}/Factorial`}
+              element={<FuncPage title="Factorial" />}
+            ></Route>
+            <Route
+              path={`/${data[3]}/Exponential`}
+              element={<FuncPage title="Exponential" />}
+            ></Route>
+            <Route
+              path={`/${data[3]}/TaylorSeries`}
+              element={<FuncPage title="TaylorSeries" />}
+            ></Route>
+            <Route
+              path={`/${data[3]}/TartagliaTriangle`}
+              element={<FuncPage title="TartagliaTriangle" />}
             ></Route>
 
             <Route path={`/`} element={<h1></h1>}></Route>

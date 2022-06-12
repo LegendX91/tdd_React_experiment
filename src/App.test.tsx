@@ -61,4 +61,22 @@ describe("Testing the correct routing of default options", () => {
       expect(screen.getByTestId("getCountry")).toBeInTheDocument();
     });
   });
+
+  describe("Testing FuncPage integrations", () => {
+    it("should render the FuncPage component following the click of Objects", () => {
+      render(<App />);
+      const el0 = screen.getByTestId("navTo3");
+      fireEvent.click(el0);
+      expect(screen.getByTestId("Problems")).toBeInTheDocument();
+    });
+
+    it("should render the ObjPage component following the click of corresponding Link inside Objects page", () => {
+      render(<App />);
+      const el0 = screen.getByTestId("navTo3");
+      fireEvent.click(el0);
+      const innerEl = screen.getByTestId("innerNavEl0");
+      fireEvent.click(innerEl);
+      expect(screen.getByTestId("Factorial")).toBeInTheDocument();
+    });
+  });
 });

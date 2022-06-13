@@ -1,5 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+import { useState } from "react";
 import App from "./App";
+import { LoginContext } from "./Helpers/LoginContext";
 
 describe("Testing the general rendering of the main App", () => {
   it("should render the main div", () => {
@@ -62,16 +64,36 @@ describe("Testing the correct routing of default options", () => {
     });
   });
 
+  describe("Testing APIPage integrations", () => {
+    it("should render the APIPage component following the click of API", () => {
+      render(<App />);
+      const el0 = screen.getByTestId("navTo2");
+      fireEvent.click(el0);
+      expect(screen.getByTestId("API")).toBeInTheDocument();
+    });
+
+    it("should render the ObjPage component following the click of corresponding Link inside Objects page", () => {
+      render(<App />);
+      const el0 = screen.getByTestId("navTo2");
+      fireEvent.click(el0);
+      const innerEl = screen.getByTestId("innerNavEl0");
+      fireEvent.click(innerEl);
+      expect(screen.getByTestId("fetchByCity")).toBeInTheDocument();
+    });
+  });
+
   describe("Testing FuncPage integrations", () => {
-    it("should render the FuncPage component following the click of Objects", () => {
+    it("should render the FuncPage component following the click of Problems", () => {
       render(<App />);
       const el0 = screen.getByTestId("navTo3");
       fireEvent.click(el0);
       expect(screen.getByTestId("Problems")).toBeInTheDocument();
     });
 
-    it("should render the ObjPage component following the click of corresponding Link inside Objects page", () => {
+    it("should render the Problem component following the click of corresponding Link inside Problems page", () => {
       render(<App />);
+      const login = screen.getByTestId("logButton");
+      fireEvent.click(login);
       const el0 = screen.getByTestId("navTo3");
       fireEvent.click(el0);
       const innerEl = screen.getByTestId("innerNavEl0");

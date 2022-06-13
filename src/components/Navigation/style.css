@@ -10,17 +10,13 @@
   display: flex;
   justify-content: space-around;
   margin: 0;
+  text-shadow: 3px 3px 3px grey;
 }
 
-.nav-links :hover{
-    box-shadow: 2px 2px 2px black;
-    border-radius: 10;
-    background: linear-gradient(
-    to left,
-    rgba(232, 250, 72, 0.794),
-    rgba(222, 200, 52, 0.794),
-    rgba(212, 150, 32, 0.794)
-  );
+.nav-links :hover {
+  border-radius: 10;
+  color: grey;
+  text-shadow: 1px 1px 1px white;
 }
 
 .nav-link {

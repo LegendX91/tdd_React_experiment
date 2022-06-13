@@ -1,4 +1,4 @@
-.primDiv {
+.apiDiv {
   margin: auto;
   width: 30%;
   border: 3px, solid white;
@@ -8,7 +8,7 @@
   align-content: center;
 }
 
-.primInput {
+.apiInput {
   margin: 5px;
   border-radius: 10px;
   text-align: center;
@@ -17,7 +17,7 @@
   box-shadow: 2px 2px 2px lightgrey;
 }
 
-.primButton {
+.apiButton {
   background: linear-gradient(
     to right,
     rgba(222, 200, 52, 0.794),
@@ -33,12 +33,12 @@
   box-shadow: 3px 3px 3px lightgrey;
 }
 
-.primButton:hover {
+.apiButton:hover {
   opacity: 0.75;
   box-shadow: 1px 1px 1px lightgrey;
 }
 
-.primLabel {
+.apiLabel {
   text-align: center;
   font-size: 20px;
   color: white;
@@ -46,11 +46,11 @@
   text-shadow: 2px 2px black;
 }
 
-.primLabel:hover{
+.apiLabel:hover{
   text-shadow: 1px 1px black;
 }
 
-.primResults {
+.apiResults {
   background: linear-gradient(
     to right,
     rgba(222, 200, 52, 0.794),

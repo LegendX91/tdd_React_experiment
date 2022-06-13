@@ -1,10 +1,18 @@
-import { Link, Route, Routes } from "react-router-dom";
-import CalcPage from "../CalcPage/CalcPage";
+import { Link } from "react-router-dom";
 import "./style.css";
+import premiumImg from "../../assets/images/premium.jpg";
 interface testPageProps {
   elements: { name: string; image: string; description: string }[];
   title: string;
 }
+
+const premiumFeatures = [
+  "Factorial",
+  "Exponential",
+  "TaylorSeries",
+  "TartagliaTriangle",
+  "Counter",
+];
 
 function TestPage({ elements, title }: testPageProps) {
   return (
@@ -42,8 +50,13 @@ function TestPage({ elements, title }: testPageProps) {
                     />
                   }
                 </div>
-                <h3 style={{ width: 250 }}>{test.name}</h3>
-                <p style={{ width: 250 }}>Description: {test.description}</p>
+                <h3 style={{ width: 250, maxHeight: 50 }}>
+                  {premiumFeatures.includes(test.name) && (
+                    <img style={{width: 20, height: 20, marginRight: 10}} src={premiumImg} />
+                  )}
+                  {test.name}
+                </h3>
+                <p style={{ width: 250, height: 50 }}>Description: {test.description}</p>
               </div>
             </Link>
           ))}

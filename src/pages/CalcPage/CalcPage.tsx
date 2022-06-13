@@ -19,6 +19,7 @@ function CalcPage({ title }: opProps) {
           <input
             data-testid="operator1"
             className="primInput"
+            type="number"
             value={a}
             onChange={(event) => {
               try {
@@ -32,6 +33,7 @@ function CalcPage({ title }: opProps) {
           <input
             data-testid="operator2"
             className="primInput"
+            type="number"
             value={b}
             onChange={(event) => {
               try {

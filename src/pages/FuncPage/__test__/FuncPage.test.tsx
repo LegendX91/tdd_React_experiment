@@ -1,6 +1,8 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
+import { LoginContext } from "../../../Helpers/LoginContext";
 import FuncPage from "../FuncPage";
 
 interface mockProps {
@@ -8,11 +10,16 @@ interface mockProps {
 }
 
 const MockedNavigation = ({ title }: mockProps) => {
+  
+  const [loggedIn, setLoggedIn] = useState(true);
+  
   return (
-    <BrowserRouter>
-      <FuncPage title={title} />
-    </BrowserRouter>
-  );
+    <LoginContext.Provider value={{loggedIn, setLoggedIn}}>
+      <BrowserRouter>
+        <FuncPage title={title} />
+      </BrowserRouter>
+    </LoginContext.Provider>
+  )
 };
 
 describe("Testing the general rendering of the FuncPage component", () => {
